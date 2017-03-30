@@ -14,7 +14,7 @@ def allowed_file(filename):
 @app.route("/")
 def hello():
     
-     return "Python default page"
+     return render_template('websockettest.php')
     
 @app.route("/test")
 def test():
