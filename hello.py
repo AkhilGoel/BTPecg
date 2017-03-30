@@ -13,7 +13,8 @@ def allowed_file(filename):
 
 @app.route("/")
 def hello():
-     return render_template('index.php')
+    
+     return "Python default page"
     
 @app.route("/test")
 def test():
