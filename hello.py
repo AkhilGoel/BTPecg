@@ -1,5 +1,5 @@
 import os, io
-import socket
+import socket,time
 from flask import Flask, request, jsonify, send_file, abort, render_template
 from werkzeug import secure_filename
 
@@ -27,11 +27,11 @@ def test():
 
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     s.connect((TCP_IP,TCP_PORT))
+    time.sleep(1)
     s.send(MESSAGE)
-    data = s.recv(BUFFER_SIZE)
     s.close()
 
-    return "received data:",data
+    return "done"
               
 
 @app.route("/analyse", methods=['POST'])
