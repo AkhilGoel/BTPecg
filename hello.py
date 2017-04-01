@@ -21,7 +21,7 @@ def hello():
 def test():
     
     TCP_IP = '172.25.13.141'
-    TCP_PORT = 4000
+    TCP_PORT = 443
     BUFFER_SIZE = 1024
     MESSAGE="Hello World"
 
