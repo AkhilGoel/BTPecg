@@ -1,4 +1,5 @@
 import os, io
+import socket
 from flask import Flask, request, jsonify, send_file, abort, render_template
 from werkzeug import secure_filename
 
@@ -18,7 +19,20 @@ def hello():
     
 @app.route("/test")
 def test():
-    return "Python Testing server"
+    
+    TCP_IP = '172.25.13.141'
+    TCP_PORT = 4000
+    BUFFER_SIZE = 1024
+    MESSAGE="Hello World"
+
+    s = socket.socket(socket.AF_INET,socket.SCOK_STREAM)
+    s.connect((TCP_IP,TCP_PORT))
+    s.send(MESSAGE)
+    data = s.recv(BUFFER_SIZE)
+    s.close()
+
+    return "received data:",data
+              
 
 @app.route("/analyse", methods=['POST'])
 def analyse():
